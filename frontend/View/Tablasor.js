@@ -1,19 +1,18 @@
 class TablaSor{
-    constructor(){
-        
+    #lista = [];
+    constructor(lista, szuloElem) {
+        this.#lista = lista;
+        this.tablaElem=szuloElem;
+        this.tablaSorGen();
     }
-    SorLetrehozas(lista, index){
-        let txt = `<tr>`;
-        for (const key in lista[index]) {
-            if (key !== "created_at" && key !== "updated_at"){
-                txt+= `<td>${lista[index][key]}</td>`;
-            }
-          
-    
+    tablaSorGen() {
+        let txt = '<tr>';
+        for (const key in this.#lista) {
+            txt += `<td>${this.#lista[key]}</td>`
         }
-        txt+= `<td><button type="button" class="btn btn-primary szerkeszt">🖍</button></td><td><button  type="button" class="btn btn-default torol" >❌</button></td>`;
-         txt += "</tr>";
-        return txt;
+        txt += `<td><button type="button" class="szerkesz btn">🖍</button> <button type="button" class="torol btn">❌</button></td>`;
+        txt += '</tr>';
+        this.tablaElem.append(txt);
     }
 }
 export default TablaSor;
