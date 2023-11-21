@@ -6,6 +6,8 @@ class Controller{
 
         this.dataService.getData('api/writers',this.megjelenit);
 
+        
+
     }
 
     megjelenit(list){
