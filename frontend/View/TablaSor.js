@@ -22,6 +22,8 @@ class TablaSor {
 
     torol(sor) {
         sor.find('.torol').on('click', () => {
+            const torolEvent = new CustomEvent("torol", { detail: this.#lista.id });
+            window.dispatchEvent(torolEvent);
             sor.remove();
         });
     }
