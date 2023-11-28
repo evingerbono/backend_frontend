@@ -1,6 +1,7 @@
 import DataService from "../Model/DataService.js";
 import TablaView from "../View/TablaView.js";
 import Urlap from "../View/UrlapView.js";
+import Konyv from "../View/KonyvView.js";
 
 class Controller {
   constructor() {
@@ -15,14 +16,24 @@ class Controller {
 
     new Urlap($(".urlap"));
     
-    $(".urlap").on("submit", (e) => {
-      e.preventDefault();
+    $(".urlap").on("submit", (event) => {
+      event.preventDefault();
       const ujAdat = {
         nev: $("#nev").val(),
         szul: $("#szul").val(),
       };
       this.dataService.postData("api/writers", ujAdat);
     });
+
+    $(window).on("megj", (event) => {
+      console.log(event.detail);
+      this.dataService.getData("api/books", this.megjelenitKonyv);
+    });
+
+  }
+
+  megjelenitKonyv(list){
+    new Konyv(list,$('.konyv'))
   }
 
   megjelenit(list) {

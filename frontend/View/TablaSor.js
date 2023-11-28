@@ -13,6 +13,7 @@ class TablaSor {
                 txt += `<td>${this.#lista[key]}</td>`;
             }
         }
+        txt += `<td><button type="button" class="megj btn btn-primary">Megjelenit</button></td>`;
         txt += `<td><button type="button" class="szerk btn">✏</button> <button type="button" class="torol btn">❌</button></td>`;
         txt += '</tr>';
         let sor = $(txt);

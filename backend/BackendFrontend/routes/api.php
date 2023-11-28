@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\WritersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,5 @@ Route::get('/writers',[WritersController::class,'index']);
 Route::post('/writers',[WritersController::class,'store']);
 Route::delete('/writers/{id}',[WritersController::class,'destroy']);
 Route::put('/writers/{id}',[WritersController::class,'update']);
+
+Route::get('/books',[BookController::class,'index']);
